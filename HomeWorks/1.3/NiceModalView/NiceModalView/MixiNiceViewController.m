@@ -65,6 +65,7 @@
 - (IBAction)clickPush:(id)sender
 {
 	MixiNiceViewController *viewController = [[MixiNiceViewController alloc] init];
+    [self presentViewController:viewController animated:YES completion:nil];
 // TODO :　hint-> pushViewController: animation:
 }
 
@@ -73,7 +74,7 @@
 	MixiNiceViewController *viewController = [[MixiNiceViewController alloc] init];
 
 // TODO :　hint-> presentViewController: animation:
-
+    [self presentViewController:viewController animated:YES completion:nil];
 
 // TODO : UIViewController+NiceAnimation にある関数を使って、いい感じの遷移になるようにしましょう
 }
