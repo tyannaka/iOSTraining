@@ -12,11 +12,12 @@
 
 @interface ViewController ()
 
-@property (nonatomic, strong) NSArray *array1;
-@property (nonatomic, strong) NSArray *array2;
-@property (nonatomic, strong) NSMutableDictionary *mutableDict1;
-@property (nonatomic, strong) NSMutableDictionary *mutableDict2;
-@property (nonatomic, strong) NSMutableDictionary *mutableDict3;
+@property (nonatomic,strong) NSArray *array1;
+@property (nonatomic,strong) NSArray *array2;
+
+@property (nonatomic, strong) NSDictionary *dict1;
+@property (nonatomic, strong) NSDictionary *dict2;
+@property (nonatomic, strong) NSDictionary *dict3;
 @property (nonatomic, strong) NSDictionary *dict4;
 @property (nonatomic, strong) NSDictionary *dict5;
 
@@ -30,33 +31,9 @@
     [super viewDidLoad];
 
     // TODO ここに課題を書き進めていってください
-    _array1 = [NSArray array];
-    _array1 = @[@"list_voice.pl", @"list_diary.pl",@"list_mymall_item.pl"];
-    
-
-    _dict4 = @{@"tag_id":@"7"};
-
-    _mutableDict3 = [NSMutableDictionary dictionary];
-    _mutableDict3[@"path"] = @"add_diary_pl";
-    _mutableDict3[@"query"] = _dict4;
-
-    _mutableDict2 = [NSMutableDictionary dictionary];
-    _mutableDict2[@"domain"] = @"mmail.jp";
-    _mutableDict2[@"entry"] = _mutableDict3;
-    
-    _mutableDict1 = [NSMutableDictionary dictionary];
-    _mutableDict1[@"domain"] = @"mixi.jp";
-    _mutableDict1[@"entry"] = _array1;
-    
-    _dict5 = @{@"domain":@"itunes.apple.com"};
-
-    
-    _array2 = @[_mutableDict1,_mutableDict2,_mutableDict3,_dict5];
-    
-    
-    NSLog(@"mutableDict = %@",_array2);
-
+    [self reproduceObject];
     [self testQueue];
+    [self testStack];
 
 }
 
@@ -64,6 +41,29 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+- (void)reproduceObject
+{
+    _array1 = @[@"list_voice.pl", @"list_diary.pl",@"list_mymall_item.pl"];
+    
+    _dict1 = @{@"domain":@"mixi.jp",
+               @"entry":_array1};
+    
+    _dict2 = @{@"tag_id":@"7"};
+    
+    _dict3 = @{@"path":@"app_diary.pl",
+               @"query":_dict2};
+    
+    _dict4 = @{@"domain":@"mmall.jp",
+               @"entry":_dict3};
+    
+    _dict5 = @{@"domain":@"itunes.apple.com"};
+    
+    _array2 = @[_dict1,_dict4,_dict5];
+    
+    NSLog(@"%@",_array2);
 }
 
 - (void)testQueue
