@@ -37,10 +37,19 @@
 
 - (id)pop
 {
-    NSString* popObj = nil;
-    popObj = [_queue lastObject];
-    [_queue removeObject:popObj];
-    return popObj;
+    if ([_queue count]) {
+        
+        NSString* popObj = nil;
+        popObj = [_queue lastObject];
+        [_queue removeObject:popObj];
+        return popObj;
+        
+    } else{
+        
+        return nil;
+        
+    }
+    
 }
 
 - (NSInteger)queueSize

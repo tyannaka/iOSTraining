@@ -22,6 +22,7 @@
     self = [super init];
     if (self) {
         _stack = [NSMutableArray array];
+//        _stack = @[].mutableCopy;
     }
     
     return self;
@@ -34,10 +35,18 @@
 
 - (id)pop
 {
-    id stackObj;
-    stackObj = [_stack objectAtIndex:0];
-    [_stack removeObject:stackObj];
-    return stackObj;
+    if ([_stack count]) {
+        
+        id stackObj;
+        stackObj = [_stack objectAtIndex:0];
+        [_stack removeObject:stackObj];
+        return stackObj;
+        
+    } else{
+        
+        return  nil;
+        
+    }
 }
 
 - (NSInteger)stackSize
