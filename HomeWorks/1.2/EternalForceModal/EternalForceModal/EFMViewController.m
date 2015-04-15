@@ -41,7 +41,9 @@
 // TODO EFMSecondViewController の delegateメソッドを実装
 - (void)closeButtonTapped:(EFMSecondViewController *)controller
 {
-    [controller dismissViewControllerAnimated:YES completion:nil];
+    [controller dismissViewControllerAnimated:YES completion:^{
+        [self buttonTapped:nil];
+    }];
 }
 
 @end
